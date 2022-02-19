@@ -200,5 +200,5 @@ private fun ReminderListItem(
 }
 
 private fun Date.formatToString(): String {
-    return SimpleDateFormat("MMMM dd, yyyy 'at' HH:MM", Locale.getDefault()).format(this)
+    return SimpleDateFormat("dd MMMM yyyy 'at' HH:mm", Locale.getDefault()).format(this)
 }
