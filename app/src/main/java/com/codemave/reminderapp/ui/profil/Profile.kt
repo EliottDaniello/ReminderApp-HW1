@@ -88,7 +88,6 @@ private fun saveUser(
     val newUsername: String = username.value
     val newPassword: String = password.value
     val editor: SharedPreferences.Editor = sharedPreferences.edit()
-    var userID: Int = 0
 
     editor.remove(userID.toString())
     editor.remove(userID.toString()+"p")
