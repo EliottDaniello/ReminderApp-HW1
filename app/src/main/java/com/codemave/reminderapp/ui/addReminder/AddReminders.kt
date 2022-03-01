@@ -25,15 +25,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.systemBarsPadding
-import kotlinx.coroutines.launch
-import androidx.lifecycle.viewmodel.compose.viewModel
-import java.util.*
-
 
 @Composable
 fun AddReminder(
     onBackPress: () -> Unit,
-    userID: Int,
+    userID: Int
     ) {
     val name = rememberSaveable { mutableStateOf("") }
     val date = rememberSaveable { mutableStateOf("") }

@@ -79,7 +79,7 @@ fun Register(
     }
 }
 
-fun saveUser(
+private fun saveUser(
     sharedPreferences: SharedPreferences,
     username: MutableState<String>,
     password: MutableState<String>
@@ -92,7 +92,6 @@ fun saveUser(
     while(sharedPreferences.getString(userID.toString(),"") != ""){
         userID += 1
     }
-    println(userID)
     editor.putString(userID.toString(), newUsername)
     editor.putString(userID.toString()+"p", newPassword)
     editor.commit()

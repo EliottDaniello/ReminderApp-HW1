@@ -17,7 +17,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.accompanist.insets.systemBarsPadding
-import java.sql.Types.NULL
 
 @Composable
 fun Profil(
@@ -80,7 +79,7 @@ fun Profil(
     }
 }
 
-fun saveUser(
+private fun saveUser(
     sharedPreferences: SharedPreferences,
     username: MutableState<String>,
     password: MutableState<String>,
@@ -95,7 +94,6 @@ fun saveUser(
     editor.remove(userID.toString()+"p")
     editor.commit()
 
-    println(userID)
     editor.putString(userID.toString(), newUsername)
     editor.putString(userID.toString()+"p", newPassword)
     editor.commit()

@@ -1,6 +1,5 @@
 package com.codemave.reminderapp.ui.login
 
-import android.app.PendingIntent.getActivity
 import android.content.SharedPreferences
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -26,14 +25,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codemave.reminderapp.ui.MainActivity
 import com.google.accompanist.insets.systemBarsPadding
-import java.security.AccessController.getContext
 
 
 @Composable
@@ -45,6 +42,7 @@ fun Login(
         val username = rememberSaveable { mutableStateOf("") }
         val password = rememberSaveable { mutableStateOf("") }
         var userID: Int
+        val context = LocalContext.current
 
         Column(
             modifier = Modifier
@@ -87,11 +85,11 @@ fun Login(
                         navController.navigate("home/"+userID.toString())
                     }
                     else {
-                        /*Toast.makeText(
-                            getContext(),
-                            "Error password",
+                        Toast.makeText(
+                            context,
+                            "Bad login or password",
                             Toast.LENGTH_LONG
-                        ).show()*/
+                        ).show()
                     }
                 },
                 enabled = true,
@@ -122,7 +120,7 @@ fun Login(
     }
 }
 
-fun correctLog(
+private fun correctLog(
     sharedPreferences: SharedPreferences,
     user: MutableState<String>,
     pwd: MutableState<String>
@@ -133,7 +131,6 @@ fun correctLog(
 
     while(sharedPreferences.getString(userID.toString(),"") != ""){
         if(sharedPreferences.getString(userID.toString(),"") == user){
-            println(userID)
             if(pwd ==  sharedPreferences.getString(userID.toString()+"p", "")){
                 return userID
             }

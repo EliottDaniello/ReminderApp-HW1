@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.codemave.reminderapp.ReminderAppState
-import com.codemave.reminderapp.data.entity.Reminder
 import com.codemave.reminderapp.rememberReminderAppState
 import com.codemave.reminderapp.ui.addReminder.AddReminder
 import com.codemave.reminderapp.ui.home.Home

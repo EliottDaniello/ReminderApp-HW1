@@ -13,18 +13,15 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.NavController
 import com.codemave.reminderapp.data.entity.Reminder
-//import com.codemave.ReminderApp.R
 import com.google.accompanist.insets.systemBarsPadding
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 @Composable
 fun Home(
@@ -36,7 +33,7 @@ fun Home(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { navController.navigate(route = "addReminder/"+userID.toString()) },
-                contentColor = Color.Blue,
+                contentColor = Color.DarkGray,
                 modifier = Modifier.padding(all = 20.dp)
             ) {
                 Icon(
@@ -181,7 +178,7 @@ private fun ReminderListItem(
 
         // icon
         IconButton(
-            onClick = { /*TODO*/ },
+            onClick = { },
             modifier = Modifier
                 .size(50.dp)
                 .padding(6.dp)
@@ -192,7 +189,7 @@ private fun ReminderListItem(
                 }
         ) {
             Icon(
-                imageVector = Icons.Filled.Edit,
+                imageVector = Icons.Default.Edit,
                 contentDescription = ""
             )
         }
